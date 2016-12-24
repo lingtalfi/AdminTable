@@ -191,6 +191,8 @@ class AdminTable
         $this->hiddenColumns = [];
         $this->extraColumns = [];
         $this->transformers = [];
+        $this->singleActions = [];
+        $this->multipleActions = [];
 
 
         //
