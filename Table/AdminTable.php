@@ -101,7 +101,7 @@ class AdminTable
     public $hiddenColumns;
 
 
-    private $widgets;
+    protected $widgets;
     /**
      * array of fields which uniquely identify a row
      */
@@ -196,7 +196,6 @@ class AdminTable
 
 
         //
-        $this->title = null;
         $this->showCheckboxes = true;
 
         $this->listable = null;
@@ -320,13 +319,13 @@ class AdminTable
         $items = $this->listable->getRows();
 
         if (null === $this->widgets) {
-            $this->widgets = new ListWidgets();
+            $this->widgets = $this->getListWidgets();
         }
 
 
         $widgets = $this->widgets->all();
 
-        $p = new ListParameters();
+        $p = $this->getListParameters();
         $p->search = $search;
         $p->page = $currentPage;
         $p->nipp = $nbItemsPerPageChoice;
@@ -355,6 +354,7 @@ class AdminTable
         $p->transformers = $this->transformers;
         return $p;
     }
+
 
     public function displayTable()
     {
@@ -393,5 +393,23 @@ class AdminTable
     {
         $this->transformers[$column] = $function;
         return $this;
+    }
+
+    //------------------------------------------------------------------------------/
+    //
+    //------------------------------------------------------------------------------/
+    /**
+     * @return ListParameters
+     */
+    protected function getListParameters()
+    {
+        return new ListParameters();
+    }
+    /**
+     * @return ListWidgets
+     */
+    protected function getListWidgets()
+    {
+        return new ListWidgets();
     }
 }

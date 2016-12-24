@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.1.0 -- 2016-12-24
+
+    - add some hooks
+    
 - 1.0.1 -- 2016-12-24
 
     - fix singleActions not initialized

@@ -6,7 +6,7 @@ namespace AdminTable\Table;
 
 class ListWidgets
 {
-    private $widgets;
+    protected $widgets;
     private $nbItemsPerPageList;
 
     public function __construct()
