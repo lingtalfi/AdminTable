@@ -21,11 +21,24 @@ class AdminTableRenderer implements TableRendererInterface
     ];
 
     public $urlPrefix;
+    private $tableId;
+
+
+    public function __construct()
+    {
+        $this->tableId = "datatable-" . rand(0, -10000);
+    }
 
 
     public static function create()
     {
         return new self();
+    }
+
+
+    public function getTableId()
+    {
+        return $this->tableId;
     }
 
     public function renderTable(ListParameters $p)
@@ -35,7 +48,8 @@ class AdminTableRenderer implements TableRendererInterface
         // PRINT THE TABLE
         //--------------------------------------------
         $paginationSelectedId = "selected-link-" . rand(0, 10000);
-        $tableId = "datatable-" . rand(0, -10000);
+        $tableId = $this->tableId;
+        $this->tableId = $tableId;
         $i = 0;
         $items = $p->items;
         $currentPage = $p->page;

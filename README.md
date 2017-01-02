@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.2.0 -- 2017-01-01
+
+    - AdminTableRenderer, add getTableId method
+    
 - 1.1.0 -- 2016-12-24
 
     - add some hooks

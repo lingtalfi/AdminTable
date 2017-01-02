@@ -245,6 +245,11 @@ class AdminTable
         return $this;
     }
 
+    public function getRenderer()
+    {
+        return $this->renderer;
+    }
+
     public function handleActions()
     {
         $this->_actionsHandled = true;
@@ -405,6 +410,7 @@ class AdminTable
     {
         return new ListParameters();
     }
+
     /**
      * @return ListWidgets
      */
