@@ -21,6 +21,24 @@ use AdminTable\Table\ListParameters;
  *              - data-ric: the ric of the row containing the link being clicked
  *              - data-value: an extra value that the user can pass if she wants to
  *
+ * - ajaxlink: sends an ajax request, possibly fetching data.
+ *          The setup is a little bit more complex.
+ *          The link contains the following attributes:
+ *              - data-url: the url of the ajax service to call, post method is used by default
+ *              - data-param: a parameter to send along with the request, the name of the param
+ *                              is "param" by default, or can be chosen using the data-param-name parameter
+ *              - ?data-param-name: the name of the parameter sent to the ajax service.
+ *                              Note: as for now, only one parameter can be sent.
+ *              - ?data-handler: the name of the callback chosen to handle a successful request.
+ *                      This parameter is optional.
+ *                      It's only necessary if you need to treat the data that comes back
+ *                      from the requested server.
+ *                      The handler has to be registered using the AdminTable.registerAjaxCallback method,
+ *                      which takes two arguments: the handler name and the callback.
+ *                      The AdminTable is available at the global level.
+ *                      Note: the AdminTable is only available once the renderTable method is called.
+ *
+ *
  *
  *
  *
@@ -280,6 +298,35 @@ class AdminTableRenderer implements TableRendererInterface
         </section>
         <script>
 
+
+            var ajaxPost = function (url, data, success) {
+                var params = typeof data == 'string' ? data : Object.keys(data).map(
+                        function (k) {
+                            return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+                        }
+                    ).join('&');
+
+                var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+                xhr.open('POST', url);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState > 3 && xhr.status == 200) {
+                        success(xhr.responseText);
+                    }
+                };
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(params);
+                return xhr;
+            };
+
+
+            var adminTableHandlers = {};
+            window.AdminTable = {};
+            window.AdminTable.registerAjaxCallback = function (handler, callback) {
+                adminTableHandlers[handler] = callback;
+            };
+
+
             var tableSection = document.getElementById('<?php echo $tableId ?>');
             var pageSelector = tableSection.querySelector('.page-selector');
             var toolbarSubmit = function () {
@@ -410,6 +457,29 @@ class AdminTableRenderer implements TableRendererInterface
                 }
                 else if (e.target.classList.contains('ajaxlink')) {
 
+                    var url = e.target.getAttribute('data-url');
+                    var param = e.target.getAttribute('data-param');
+                    var paramName = e.target.getAttribute('data-param-name');
+                    var handler = e.target.getAttribute('data-handler');
+
+                    var callback = function () {
+                    };
+                    if (null !== handler && handler in adminTableHandlers) {
+                        callback = adminTableHandlers[handler];
+                    }
+
+
+                    var data = {};
+                    if (null !== param) {
+                        var theParamName = "param";
+                        if (null !== paramName) {
+                            theParamName = paramName;
+                        }
+                        data[theParamName] = param;
+                    }
+
+                    ajaxPost(url, data, callback);
+                    e.preventDefault();
                 }
             });
 
