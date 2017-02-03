@@ -483,6 +483,17 @@ class AdminTableRenderer implements TableRendererInterface
                     });
                     e.preventDefault();
                 }
+                else if (e.target.classList.contains('jslink')) {
+
+                    var handler = e.target.getAttribute('data-handler');
+                    var callback = function () {
+                    };
+                    if (null !== handler && handler in adminTableHandlers) {
+                        callback = adminTableHandlers[handler];
+                    }
+                    callback(e.target);
+                    e.preventDefault();
+                }
             });
 
         </script>
