@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.5.1 -- 2017-02-03
+
+    - AdminTableRenderer, add jslink helper comments
+    
 - 1.5.0 -- 2017-02-03
 
     - AdminTableRenderer, add jslink helper

@@ -38,6 +38,10 @@ use AdminTable\Table\ListParameters;
  *                      The AdminTable is available at the global level.
  *                      Note: the AdminTable is only available once the renderTable method is called.
  *
+ * - jslink: execute a js handler.
+ *                  The js handler has to be registered using the AdminTable.registerAjaxCallback method.
+ *                  It's then executed when the link is clicked, and the argument passed to the callback
+ *                  is the link (as a dom object).
  *
  *
  *
