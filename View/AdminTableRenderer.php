@@ -5,6 +5,27 @@ namespace AdminTable\View;
 
 use AdminTable\Table\ListParameters;
 
+
+/**
+ *
+ * This renderer provides special features for the links.
+ * A feature is activated by adding a special css class on a link.
+ * It's handled by the javascript code automatically displayed at the end of the table.
+ *
+ * The following classes and features are available:
+ *
+ * - confirmlink: displays a raw javascript confirm dialog before following the link
+ * - postlink: posts a form when the link is clicked.
+ *              The data of the form are given by special attributes provided by the link:
+ *              - data-action: the name of the action executed
+ *              - data-ric: the ric of the row containing the link being clicked
+ *              - data-value: an extra value that the user can pass if she wants to
+ *
+ *
+ *
+ *
+ *
+ */
 class AdminTableRenderer implements TableRendererInterface
 {
 
@@ -386,6 +407,9 @@ class AdminTableRenderer implements TableRendererInterface
 
 
                     e.preventDefault();
+                }
+                else if (e.target.classList.contains('ajaxlink')) {
+
                 }
             });
 
