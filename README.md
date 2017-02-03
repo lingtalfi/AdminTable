@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.3.0 -- 2017-02-03
+
+    - AdminTableRenderer, add extraHiddenFields and onItemIterated methods
+    
 - 1.2.0 -- 2017-01-01
 
     - AdminTableRenderer, add getTableId method

@@ -22,11 +22,14 @@ class AdminTableRenderer implements TableRendererInterface
 
     public $urlPrefix;
     private $tableId;
+    private $extraHiddenFields;
+    private $onItemIteratedCallback;
 
 
     public function __construct()
     {
         $this->tableId = "datatable-" . rand(0, -10000);
+        $this->extraHiddenFields = [];
     }
 
 
@@ -39,6 +42,18 @@ class AdminTableRenderer implements TableRendererInterface
     public function getTableId()
     {
         return $this->tableId;
+    }
+
+    public function setExtraHiddenFields(array $fields)
+    {
+        $this->extraHiddenFields = $fields;
+        return $this;
+    }
+
+    public function setOnItemIteratedCallback(\Closure $callback)
+    {
+        $this->onItemIteratedCallback = $callback;
+        return $this;
     }
 
     public function renderTable(ListParameters $p)
@@ -153,6 +168,7 @@ class AdminTableRenderer implements TableRendererInterface
                         </thead>
                         <tbody>
                         <?php foreach ($items as $item):
+                            $this->onItemIterated($item);
                             $rowUniqueIdentifier = $this->getRowUniqueIdentifier($item, $ric, $ricSeparator);
                             ?>
                             <tr class="<?php echo (0 === $i++ % 2) ? 'even' : 'odd'; ?>">
@@ -410,8 +426,24 @@ class AdminTableRenderer implements TableRendererInterface
             <input type="hidden" name="<?php echo $p->pageGetKey; ?>"
                    value="<?php echo $page; ?>">
         <?php endif;
+
+
+        foreach ($this->extraHiddenFields as $name => $value):
+            ?>
+            <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
+                       value="<?php echo htmlspecialchars($value); ?>"><?php
+
+        endforeach;
+
     }
 
+
+    private function onItemIterated(array $item)
+    {
+        if (null !== $this->onItemIteratedCallback) {
+            call_user_func($this->onItemIteratedCallback, $item);
+        }
+    }
 
     private function isHidden($col, ListParameters $p)
     {
