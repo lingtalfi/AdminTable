@@ -478,7 +478,9 @@ class AdminTableRenderer implements TableRendererInterface
                         data[theParamName] = param;
                     }
 
-                    ajaxPost(url, data, callback);
+                    ajaxPost(url, data, function (theData) {
+                        callback(theData, e.target);
+                    });
                     e.preventDefault();
                 }
             });
