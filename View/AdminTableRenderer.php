@@ -544,12 +544,12 @@ class AdminTableRenderer implements TableRendererInterface
             if (is_array($value)) {
                 foreach ($value as $v) {
                     ?>
-                    <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
+                    <input type="hidden" name="<?php echo htmlspecialchars($name); ?>"
                        value="<?php echo htmlspecialchars($v); ?>"><?php
                 }
             } else {
                 ?>
-                <input type="hidden" name="<?php echo htmlspecialchars($name); ?>
+                <input type="hidden" name="<?php echo htmlspecialchars($name); ?>"
                        value="<?php echo htmlspecialchars($value); ?>"><?php
             }
 

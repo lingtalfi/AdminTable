@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.6.1 -- 2017-02-05
+
+    - AdminTableRenderer, extraHiddenFields fix missing quote bug
+
 - 1.6.0 -- 2017-02-05
 
     - AdminTableRenderer, extraHiddenFields accepts array 
