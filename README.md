@@ -329,6 +329,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.6.5 -- 2017-02-28
+
+    - QuickPdoListable, nested queries are not searchable by default
+    
 - 1.6.4 -- 2017-02-15
 
     - AdminTableRenderer, printHiddenFields visibility to protected
