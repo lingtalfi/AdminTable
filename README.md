@@ -8,7 +8,7 @@ An object to display administrable list of rows.
 AdminTable is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
 
 
-[![admintable.png](https://s19.postimg.org/k6nl1f2sj/admintable.png)](https://postimg.org/image/l8xrjyllr/)
+[![admintable.png](https://i.postimg.cc/qBsTPmr8/admintable.png)](https://postimg.cc/PN59ZQPx)
 
 
 
