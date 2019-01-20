@@ -10,7 +10,7 @@ An object to display administrable list of rows.
 
 
 
-[![admintable.png](https://i.postimg.cc/qBsTPmr8/admintable.png)](https://postimg.cc/PN59ZQPx)
+[![admintable.png](http://lingtalfi.com/img/universe/AdminTable/admintable.png)](http://lingtalfi.com/img/universe/AdminTable/admintable.png)
 
 
 
