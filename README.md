@@ -5,10 +5,30 @@ AdminTable
 
 An object to display administrable list of rows.
 
-AdminTable is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
+
+
+
 
 
 [![admintable.png](https://i.postimg.cc/qBsTPmr8/admintable.png)](https://postimg.cc/PN59ZQPx)
+
+
+
+AdminTable is part of the [universe](https://github.com/karayabin/universe-snapshot) framework.
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import AdminTable
+```
+
+
+
 
 
 
