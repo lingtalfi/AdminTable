@@ -1,9 +1,9 @@
 <?php
 
 
-namespace AdminTable\Listable;
+namespace Ling\AdminTable\Listable;
 
-use QuickPdo\QuickPdo;
+use Ling\QuickPdo\QuickPdo;
 
 class QuickPdoListable extends WithSearchColumns
 {

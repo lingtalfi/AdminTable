@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AdminTable\Listable;
+namespace Ling\AdminTable\Listable;
 
 /**
  * There is actually an order in which the methods are called.

@@ -1,10 +1,10 @@
 <?php
 
 
-use AdminTable\Listable\ArrayListable;
-use AdminTable\Table\AdminTable;
-use AdminTable\Table\ListWidgets;
-use AdminTable\View\AdminTableRenderer;
+use Ling\AdminTable\Listable\ArrayListable;
+use Ling\AdminTable\Table\AdminTable;
+use Ling\AdminTable\Table\ListWidgets;
+use Ling\AdminTable\View\AdminTableRenderer;
 
 require_once "bigbang.php";
 ini_set('display_errors', 1);

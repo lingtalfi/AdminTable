@@ -2,9 +2,9 @@
 
 
 
-use AdminTable\Listable\QuickPdoListable;
-use AdminTable\Table\AdminTable;
-use AdminTable\View\AdminTableRenderer;
+use Ling\AdminTable\Listable\QuickPdoListable;
+use Ling\AdminTable\Table\AdminTable;
+use Ling\AdminTable\View\AdminTableRenderer;
 
 require_once __DIR__ . "/../init.php";
 

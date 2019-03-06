@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AdminTable\Listable;
+namespace Ling\AdminTable\Listable;
 
 abstract class WithSearchColumns implements ListableInterface
 {

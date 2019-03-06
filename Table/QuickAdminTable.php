@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminTable\Table;
+namespace Ling\AdminTable\Table;
 
 
 class QuickAdminTable extends AdminTable

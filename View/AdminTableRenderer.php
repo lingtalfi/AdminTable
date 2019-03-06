@@ -1,9 +1,9 @@
 <?php
 
 
-namespace AdminTable\View;
+namespace Ling\AdminTable\View;
 
-use AdminTable\Table\ListParameters;
+use Ling\AdminTable\Table\ListParameters;
 
 
 /**

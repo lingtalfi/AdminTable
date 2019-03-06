@@ -1,9 +1,9 @@
 <?php
 
-namespace AdminTable\Table;
+namespace Ling\AdminTable\Table;
 
-use AdminTable\Listable\ListableInterface;
-use AdminTable\View\TableRendererInterface;
+use Ling\AdminTable\Listable\ListableInterface;
+use Ling\AdminTable\View\TableRendererInterface;
 
 
 /**

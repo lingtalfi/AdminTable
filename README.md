@@ -24,7 +24,7 @@ Install
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
-uni import AdminTable
+uni import Ling/AdminTable
 ```
 
 
@@ -163,10 +163,10 @@ Don't be scared, simple examples are following...
 <?php
 
 
-use AdminTable\Listable\ArrayListable;
-use AdminTable\Table\AdminTable;
-use AdminTable\Table\ListWidgets;
-use AdminTable\View\AdminTableRenderer;
+use Ling\AdminTable\Listable\ArrayListable;
+use Ling\AdminTable\Table\AdminTable;
+use Ling\AdminTable\Table\ListWidgets;
+use Ling\AdminTable\View\AdminTableRenderer;
 
 require_once "bigbang.php";
 ini_set('display_errors', 1);
@@ -290,9 +290,9 @@ And now a regular example, using [QuickPdo](https://github.com/lingtalfi/QuickPd
 
 
 
-use AdminTable\Listable\QuickPdoListable;
-use AdminTable\Table\AdminTable;
-use AdminTable\View\AdminTableRenderer;
+use Ling\AdminTable\Listable\QuickPdoListable;
+use Ling\AdminTable\Table\AdminTable;
+use Ling\AdminTable\View\AdminTableRenderer;
 
 require_once __DIR__ . "/../init.php";
 
