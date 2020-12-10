@@ -1,9 +1,6 @@
-- 6.8.9 -- 2020-12-04
-
-    - Add lpi-deps.byml file
-
+AdminTable
 ===============
-2016-12-23 --> 2017-02-05
+2016-12-23 --> 2020-12-10
 
 
 An object to display administrable list of rows.
@@ -351,6 +348,10 @@ Dependencies
 
 History Log
 ------------------
+
+- 1.6.9 -- 2020-12-10
+
+    - fix readme title messed up
 
 - 1.6.8 -- 2020-12-08
 
